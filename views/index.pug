@@ -2,3 +2,17 @@ extends default
 
 block content
   div.container
+
+  div.workspace
+    form()
+      input#origin(placeholder = "Start-Address")
+      input#destination(placeholder = "Destination-Address")
+      button Calculate
+    p#message-1
+    p#message-2
+
+  script(src="/js/app.js") 
+  //- label(for="origin") Start-Address 
+  //- input(type="text" id = "origin" name="origin" required=true)
+  //- label(for="destination") Destination-Address 
+  //- input(type="text" id="destination" name="destination")
