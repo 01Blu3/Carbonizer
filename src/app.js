@@ -6,6 +6,7 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const sumroute = require('./utils/sumroute');
+const textme = require('./utils/textme');
 // const textme = require('./utils/textme');
 
 // Starts express
@@ -47,6 +48,15 @@ app.get(`/carbonize`, (req, res) => {
     if (err) return res.send({ err });
     res.send({ base, timeText, mileText, meter, duration });
   });
+});
+
+app.get(`/text`, (req, res) => {
+  let msg = req.query.message;
+  if (!req)
+    return res.send({
+      error: 'Message could not be sent',
+    });
+  textme(msg);
 });
 
 const server = app.listen(port, () =>

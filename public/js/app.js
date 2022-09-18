@@ -42,7 +42,9 @@ tripForm.addEventListener('submit', e => {
       const miles = ktom(data.meter);
       const footprint = fuelize(carType, miles);
       messageOne.textContent = `Trip is ${miles} miles taking ${data.timeText}`;
-      messageTwo.textContent = `Your carbon footprint for the trip will be ${footprint} kg's`;
+      messageTwo.textContent = `Your carbon footprint for the trip will be ${footprint} kgs`;
+      let textmsg = messageTwo.textContent;
+      fetch(`/text?message=${textmsg}`);
     })
   );
 });
