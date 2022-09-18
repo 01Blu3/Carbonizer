@@ -12,6 +12,7 @@ const sumroute = (loc, callback) => {
       const base = body.rows[0].elements[0];
       callback(undefined, {
         base: body.rows[0].elements[0],
+        timeText: base.duration.text,
         mileText: base.distance.text,
         meter: base.distance.value,
         duration: base.duration.value,

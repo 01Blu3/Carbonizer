@@ -1,5 +1,5 @@
 {
-  "name": "Carbonizer",
+  "name": "carbonizer",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,10 +7,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "pug": "^3.0.2",
     "request": "^2.88.2",
     "require": "^2.4.20",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "twilio": "^3.82.0"
   }
 }

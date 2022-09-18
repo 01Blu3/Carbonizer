@@ -5,9 +5,16 @@ block content
 
   div.workspace
     form()
-      input#origin(placeholder = "Start-Address")
+      input#origins(placeholder = "Start-Address")
       input#destination(placeholder = "Destination-Address")
       button Calculate
+    label(for="car") Car Make
+    select#car(name="Car Make") 
+      option(value="Impala") Impala 
+      option(value="Honda") Honda 
+      option(value="Ford") Ford 
+      option(value="BMW") BMW 
+
     p#message-1
     p#message-2
 

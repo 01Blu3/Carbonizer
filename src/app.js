@@ -1,10 +1,16 @@
 // Express imported with web-server
+// const favicon = require('serve-favicon');
+// const { stat } = require('fs');
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
-const { stat } = require('fs');
+const sumroute = require('./utils/sumroute');
+// const textme = require('./utils/textme');
+
+// Starts express
 const app = express();
 const port = process.env.PORT || 3000;
-const favicon = require('serve-favicon');
 
 // Defining paths for express
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -19,10 +25,6 @@ app.get('/', (req, res) =>
   })
 );
 
-const server = app.listen(port, () =>
-  console.log(`Express running -> PORT ${server.address().port}`)
-);
-
 // Templating engine is preferable as can insert variables into HTML
 // Express expects templates to be in a folder called 'views'
 app.set('view engine', 'pug');
@@ -30,6 +32,23 @@ app.set('view engine', 'pug');
 // Serve static files from the `public` folder
 app.use(express.static(publicDirectoryPath));
 
-app.get('/carbonize', (req, res) => {
-  address = req.query.address;
+app.get(`/carbonize`, (req, res) => {
+  origins = req.query.origins;
+  destination = req.query.destination;
+  if (!origins || !destination) {
+    return res.send({
+      error: 'Unable to fullfill request. Try again',
+    });
+  }
+
+  let loc = { origins, destination };
+
+  sumroute(loc, (err, { base, timeText, mileText, meter, duration } = {}) => {
+    if (err) return res.send({ err });
+    res.send({ base, timeText, mileText, meter, duration });
+  });
 });
+
+const server = app.listen(port, () =>
+  console.log(`Express running -> PORT ${server.address().port}`)
+);
