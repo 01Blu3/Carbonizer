@@ -43,8 +43,7 @@ tripForm.addEventListener('submit', e => {
       const footprint = fuelize(carType, miles);
       messageOne.textContent = `Trip is ${miles} miles taking ${data.timeText}`;
       messageTwo.textContent = `Your carbon footprint for the trip will be ${footprint} kgs`;
-      messageThree.textContent = ``;
-      let textmsg = messageTwo.textContent;
+      let textmsg = `${miles} mile-long trip in an ${carType} will leave a carbon footprint of ${footprint} kgs`;
       fetch(`/text?message=${textmsg}`);
     })
   );
