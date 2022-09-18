@@ -19,6 +19,7 @@ html {
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; /* [2] */
+  background-color: antiquewhite;
 }
 
 /* Header
@@ -45,4 +46,52 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+}
+
+.bingmap {
+  float: right;
+  margin-right: 250px;
+}
+
+button {
+  margin-left: 10px;
+  cursor: pointer;
+  border: 1px solid #ff6624;
+  background: #ff6624;
+  color: white;
+  padding: 10px;
+}
+
+button:hover {
+  background: #c35729;
+  border: 1px solid #c35729;
+}
+button:active {
+  background: #ec652b;
+  border: #ec652b;
+}
+
+#origins,
+#destination,
+p {
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+input,
+label,
+select,
+p {
+  font-size: 20px;
+}
+
+label,
+select {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+#message1,
+#message2 {
+  display: inline;
 }
